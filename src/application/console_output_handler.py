@@ -1,4 +1,4 @@
-from src.application.interfaces.outputInterface import OutputHandlerInterface
+from src.application.interfaces.output_interface import OutputHandlerInterface
 
 
 class ConsoleOutputHandler(OutputHandlerInterface):
