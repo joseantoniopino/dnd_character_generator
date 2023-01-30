@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from src.domain.character import Character
+from src.domain.characters.character import Character
 
 
 class CharacterRepositoryInterface(ABC):

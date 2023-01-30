@@ -1,8 +1,8 @@
 
-from src.application.character_application import CharacterApplication
-from src.application.character_creator import CharacterCreator
-from src.application.console_output_handler import ConsoleOutputHandler
-from src.infrastructure.character_repository import MySQLCharacterRepository
+from src.application.characters.character_application import CharacterApplication
+from src.application.characters.character_creator import CharacterCreator
+from src.application.console.console_output_handler import ConsoleOutputHandler
+from src.infrastructure.characters.mysql_character_repository import MySQLCharacterRepository
 from src.infrastructure.database import MySQLDatabase
 
 

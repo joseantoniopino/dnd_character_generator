@@ -1,7 +1,6 @@
-# character_repository.py
 from abc import ABC
 
-from src.infrastructure.interfaces.character_repository_interface import CharacterRepositoryInterface
+from src.infrastructure.interfaces.characters.character_repository_interface import CharacterRepositoryInterface
 
 
 class MySQLCharacterRepository(CharacterRepositoryInterface, ABC):
