@@ -1,15 +1,16 @@
 from src.domain.character import Character
+from src.application.interfaces.character_application_interface import CharacterApplicationInterface
 
 
-class CharacterApplication:
-    def __init__(self, character_repository, output_handler):
+class CharacterApplication(CharacterApplicationInterface):
+    def __init__(self, character_repository, console_output_handler):
         self.character_repository = character_repository
-        self.output_handler = output_handler
+        self.console_output_handler = console_output_handler
 
     def create_character(self, name, char_class, race, background, age):
         character = Character(name, char_class, race, background, age)
         self.character_repository.save(character)
-        self.output_handler.handle(character)
+        self.console_output_handler.handle(character)
 
     def run(self):
         name = input("Ingrese el nombre del personaje: ")

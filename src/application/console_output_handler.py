@@ -1,6 +1,6 @@
-from src.application.interface import OutputHandler
+from src.application.interfaces.outputInterface import OutputHandlerInterface
 
 
-class ConsoleOutputHandler(OutputHandler):
+class ConsoleOutputHandler(OutputHandlerInterface):
     def handle(self, data):
         print(data)

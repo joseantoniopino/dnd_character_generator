@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class OutputHandler(ABC):
+class OutputHandlerInterface(ABC):
     @abstractmethod
     def handle(self, data):
         pass
