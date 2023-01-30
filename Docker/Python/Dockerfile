@@ -1,26 +1,23 @@
+# Use the official Python image
 FROM python:bullseye
 
-# Actualizar sistema y instalar dependencias
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libpq-dev
-
-# Crear un directorio para nuestra aplicación
-RUN mkdir /app
+# Set the working directory in the container
 WORKDIR /app
 
-# Copiar los archivos necesarios para nuestra aplicación
-COPY ./requirements.txt /app
+# Copy the requirements file to the container
+COPY requirements.txt .
 
-# Instalar las dependencias de Python
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+# Install the required packages
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpq-dev \
+&& pip install --no-cache-dir -r requirements.txt
 
-# Copiar el resto de los archivos de nuestra aplicación
-COPY . /app
+# Copy the rest of the application code to the container
+COPY . .
 
-# Exponer el puerto en el cual nuestra aplicación escuchará
-EXPOSE 8000
+# Set the user to be used when running the container
+USER 1000
 
-# Ejecutar nuestra aplicación al iniciar el contenedor
-CMD ["tail", "-f", "/dev/null"]
+# Set the default command to run when the container starts
+CMD [ "python", "main.py" ]
