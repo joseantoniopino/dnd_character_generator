@@ -1,12 +1,9 @@
-from src.application.bootstrapper.application_bootstrapper import ApplicationBootstrapper
+from src.application.console.main_menu import MainMenu
 
 
 def main():
-    bootstrapper = ApplicationBootstrapper()
-    application = bootstrapper.get_character_command_line_application()
-    application.run()
-
-    bootstrapper.close_connection()
+    main_menu = MainMenu()
+    main_menu.run()
 
 
 if __name__ == "__main__":
