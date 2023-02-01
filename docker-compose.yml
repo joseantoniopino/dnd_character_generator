@@ -16,25 +16,6 @@ services:
         networks:
             - app-network
 
-#    app:
-#        build:
-#            context: ./Docker/Python
-#            dockerfile: Dockerfile
-#        environment:
-#            DB_HOST: mysql
-#            DB_PORT: 3306
-#            DB_DATABASE: ${DB_DATABASE}
-#            DB_USERNAME: ${DB_USERNAME}
-#            DB_PASSWORD: ${DB_PASSWORD}
-#        ports:
-#            - "8000:8000"
-#        depends_on:
-#            - mysql
-#        volumes:
-#            - .:/app
-#        networks:
-#            - app-network
-
 volumes:
     dbdata:
 

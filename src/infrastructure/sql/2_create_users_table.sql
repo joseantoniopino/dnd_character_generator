@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(255) NOT NULL UNIQUE,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  role_id INT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  deleted_at TIMESTAMP DEFAULT NULL,
+  FOREIGN KEY (role_id) REFERENCES roles(id)
+);
+
+INSERT INTO users (username, email, password, role_id)
+SELECT 'Admin', 'admin@example.com', SHA2('password', 256), 1
+FROM DUAL
+WHERE NOT EXISTS (SELECT * FROM users WHERE username = 'Admin');
+
